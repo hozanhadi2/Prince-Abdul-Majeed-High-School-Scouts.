@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&amp;family=Amiri:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none !important; }
+      .a4-page { box-shadow: none !important; margin: 0 !important; }
+    }
+    .a4-page {
+      width: 210mm;
+      max-width: 100%;
+      min-height: 297mm;
+      position: relative;
+      overflow: hidden;
+    }
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.04;
+      font-size: 280px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-border {
+      position: absolute;
+      inset: 8px;
+      border: 2px solid #1a5c2e;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .page-border-inner {
+      position: absolute;
+      inset: 12px;
+      border: 1px solid #c5a84e;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .content-area { position: relative; z-index: 2; }
+    body { font-family: 'Noto Naskh Arabic', 'Amiri', serif; }
+    .heading-font { font-family: 'Amiri', 'Noto Naskh Arabic', serif; }
+    .feature-item { position: relative; padding-right: 28px; }
+    .feature-item::before {
+      content: '⚜️';
+      position: absolute;
+      right: 0;
+      top: 2px;
+      font-size: 14px;
+    }
+    .gold-divider {
+      height: 2px;
+      background: linear-gradient(to left, transparent, #c5a84e, transparent);
+    }
+    .badge-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            scout: { dark: '#1a5c2e', main: '#2d8a4e', light: '#e8f5ec' },
+            gold: { main: '#c5a84e', light: '#f9f3e0', dark: '#8a7535' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gray-200 flex flex-col items-center overflow-auto p-4"><!-- Print Button --> <button onclick="window.print()" class="no-print mb-4 bg-scout-dark text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-green-800 transition font-bold text-sm"> <i data-lucide="printer" style="width:18px;height:18px;"></i> طباعة الدعوة </button> <!-- A4 Page -->
+  <div class="a4-page bg-white shadow-2xl mx-auto" id="page">
+   <div class="page-border"></div>
+   <div class="page-border-inner"></div>
+   <div class="watermark select-none">
+    ⚜
+   </div>
+   <div class="content-area px-12 py-8"><!-- Header Row -->
+    <div class="flex justify-between items-start text-center text-xs leading-relaxed mb-1" style="color:#1a5c2e;">
+     <div class="w-1/3 text-right">
+      <p class="font-bold text-sm">المملكة العربية السعودية</p>
+      <p>وزارة التعليم</p>
+      <p>إدارة تعليم مدينة الرياض</p>
+     </div>
+     <div class="w-1/3 flex flex-col items-center">
+      <div class="text-5xl mb-1">
+       ⚜️
+      </div>
+     </div>
+     <div class="w-1/3 text-left">
+      <p class="font-bold text-sm" id="header-school">ثانوية الأمير عبد المجيد بن عبدالعزيز</p>
+      <p>الفرقة الكشفية</p>
+      <p>النشاط الطلابي</p>
+     </div>
+    </div><!-- Logos Row -->
+    <div class="flex justify-center items-center gap-8 my-3">
+     <div class="badge-icon bg-scout-light text-scout-dark border-2 border-scout-dark">
+      🏕️
+     </div>
+     <div class="badge-icon bg-gold-light border-2 border-gold-main text-gold-dark">
+      🌟
+     </div>
+     <div class="badge-icon bg-scout-light text-scout-dark border-2 border-scout-dark">
+      🤝
+     </div>
+    </div>
+    <div class="gold-divider mb-5"></div><!-- Title -->
+    <div class="text-center mb-5">
+     <h1 class="heading-font text-2xl font-bold inline-block px-6 py-2 rounded-lg" style="color:#1a5c2e; background: linear-gradient(135deg, #f9f3e0, #e8f5ec);" id="main-title">⚜️ دعوة للانضمام للفرقة الكشفية ⚜️</h1>
+    </div><!-- Greeting -->
+    <div class="text-right leading-loose text-sm mb-4" style="color:#333; line-height: 2;">
+     <p class="font-bold text-base mb-2" style="color:#1a5c2e;">عزيزي طالب "<span id="body-school">ثانوية الأمير عبد المجيد بن عبدالعزيز</span>" المبدع..</p>
+     <p class="mb-2">هل تبحث عن بناء شخصية قيادية؟ هل تعشق المغامرة وترغب في اكتساب مهارات لا تُنسى؟</p>
+     <p>يسرنا دعوتك لتكون فرداً من أفراد الفرقة الكشفية بمدرستنا، لتشاركنا رحلة التميز والعطاء.</p>
+    </div><!-- What Awaits You -->
+    <div class="rounded-xl p-5 mb-5" style="background: linear-gradient(135deg, #e8f5ec, #f9f3e0); border: 1px solid #c5a84e;">
+     <h2 class="heading-font text-lg font-bold text-center mb-4" style="color:#1a5c2e;">ماذا ينتظرك في عالم الكشافة؟</h2>
+     <div class="grid grid-cols-2 gap-4 text-sm" style="color:#333;">
+      <div class="bg-white rounded-lg p-3 shadow-sm border border-green-100">
+       <p class="font-bold mb-1" style="color:#1a5c2e;">🧭 القيادة</p>
+       <p>كيف تدير فريقك وتتخذ قراراتك بثقة.</p>
+      </div>
+      <div class="bg-white rounded-lg p-3 shadow-sm border border-green-100">
+       <p class="font-bold mb-1" style="color:#1a5c2e;">🪢 المهارة</p>
+       <p>تعلم فنون العقد، التخييم، والإسعافات الأولية.</p>
+      </div>
+      <div class="bg-white rounded-lg p-3 shadow-sm border border-green-100">
+       <p class="font-bold mb-1" style="color:#1a5c2e;">🤝 المشاركة</p>
+       <p>تمثيل المدرسة في المحافل الوطنية والخدمات التطوعية.</p>
+      </div>
+      <div class="bg-white rounded-lg p-3 shadow-sm border border-green-100">
+       <p class="font-bold mb-1" style="color:#1a5c2e;">🏕️ المتعة</p>
+       <p>رحلات خلوية، معسكرات، ومسابقات تنافسية.</p>
+      </div>
+     </div>
+    </div><!-- Registration Details -->
+    <div class="rounded-lg p-4 mb-5 text-sm" style="background:#1a5c2e; color:#fff;">
+     <h3 class="text-center font-bold text-base mb-3">📍 تفاصيل التسجيل والاستفسار</h3>
+     <div class="flex justify-around text-center leading-relaxed">
+      <div>
+       <p class="font-bold" style="color:#c5a84e;">المكان</p>
+       <p>مقر النشاط الكشفي</p>
+      </div>
+      <div>
+       <p class="font-bold" style="color:#c5a84e;">الفترة</p>
+       <p>متاح التسجيل خلال الفسحة</p>
+      </div>
+      <div>
+       <p class="font-bold" style="color:#c5a84e;">المتطلبات</p>
+       <p>الرغبة الجادة والروح الرياضية</p>
+      </div>
+     </div>
+    </div><!-- Motivational Line -->
+    <p class="text-center font-bold text-base mb-6 heading-font" style="color:#c5a84e;">✨ نتطلع لرؤيتك بوشاح الكشافة قريباً! ✨</p>
+    <div class="gold-divider mb-5"></div><!-- Signatures -->
+    <div class="flex justify-between text-center text-sm" style="color:#1a5c2e;">
+     <div>
+      <p class="font-bold mb-1">رائد النشاط الكشفي</p>
+      <p id="sig-leader">القائد/ فالح الرشيد</p>
+     </div>
+     <div>
+      <p class="font-bold mb-1">مدير المدرسة</p>
+      <p id="sig-director">الأستاذ/ عبدالله بن ظافر بن الشهري</p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    lucide.createIcons();
+
+    const defaultConfig = {
+      main_title: 'دعوة للانضمام للفرقة الكشفية',
+      school_name: 'ثانوية الأمير عبد المجيد بن عبدالعزيز',
+      scout_leader: 'القائد/ فالح الرشيد',
+      school_director: 'الأستاذ/ عبدالله بن ظافر بن الشهري',
+      background_color: '#f3f4f6',
+      page_color: '#ffffff',
+      accent_color: '#1a5c2e',
+      gold_color: '#c5a84e',
+      text_color: '#333333',
+      font_family: 'Amiri',
+      font_size: 14
+    };
+
+    function applyConfig(config) {
+      const c = { ...defaultConfig, ...config };
+
+      document.getElementById('main-title').textContent = '⚜️ ' + c.main_title + ' ⚜️';
+      document.getElementById('header-school').textContent = c.school_name;
+      document.getElementById('body-school').textContent = c.school_name;
+      document.getElementById('sig-leader').textContent = c.scout_leader;
+      document.getElementById('sig-director').textContent = c.school_director;
+
+      document.body.style.backgroundColor = c.background_color;
+      document.getElementById('page').style.backgroundColor = c.page_color;
+
+      const baseFont = c.font_family + ", 'Noto Naskh Arabic', serif";
+      document.body.style.fontFamily = baseFont;
+      document.querySelectorAll('.heading-font').forEach(el => el.style.fontFamily = baseFont);
+
+      const bs = c.font_size;
+      document.querySelectorAll('.text-sm').forEach(el => el.style.fontSize = bs + 'px');
+      document.querySelectorAll('.text-base').forEach(el => el.style.fontSize = (bs * 1.14) + 'px');
+      document.querySelectorAll('.text-lg').forEach(el => el.style.fontSize = (bs * 1.28) + 'px');
+      document.getElementById('main-title').style.fontSize = (bs * 1.7) + 'px';
+    }
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => applyConfig(config),
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: v => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.page_color || defaultConfig.page_color, set: v => { config.page_color = v; window.elementSdk.setConfig({ page_color: v }); } },
+          { get: () => config.accent_color || defaultConfig.accent_color, set: v => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } },
+          { get: () => config.gold_color || defaultConfig.gold_color, set: v => { config.gold_color = v; window.elementSdk.setConfig({ gold_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: v => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: v => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: v => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+        }
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ['main_title', config.main_title || defaultConfig.main_title],
+        ['school_name', config.school_name || defaultConfig.school_name],
+        ['scout_leader', config.scout_leader || defaultConfig.scout_leader],
+        ['school_director', config.school_director || defaultConfig.school_director],
+      ])
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e92240803082cfd',t:'MTc3NTY2MDQxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
